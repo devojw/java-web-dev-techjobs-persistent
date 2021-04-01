@@ -20,8 +20,8 @@ public class EmployerController {
 
     @RequestMapping("")
     public String index(Model model){
-        model.addAttribute("employers",employerRepository);
-        return "index";
+        model.addAttribute("employers",employerRepository.findAll());
+        return "employers/index";
     }
     @GetMapping("add")
     public String displayAddEmployerForm(Model model) {
@@ -50,6 +50,7 @@ public class EmployerController {
             return "employers/view";
         } else {
             return "redirect:../";
+
         }
     }
 }
